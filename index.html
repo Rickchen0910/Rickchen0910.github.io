@@ -553,6 +553,8 @@
             <a href="mailto:Binzhi.Chen@essex.ac.uk">Binzhi.Chen@essex.ac.uk</a>
             <span class="sep">·</span>
             <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="sep">·</span>
+            <a href="https://www.linkedin.com/in/binzhi-chen-aa03ba18a" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -625,7 +627,7 @@
           <li class="paper-item">
             <details>
               <summary>
-                <span class="paper-title">xtife: Interactive Fixed Effects Estimator for Panel Data in R</span>
+                <span class="paper-title"><a href="https://github.com/Rickchen0910/xtife" target="_blank" rel="noopener noreferrer">xtife</a>: Interactive Fixed Effects Estimator for Panel Data in R</span>
                 <span class="toggle-icon">▾</span>
               </summary>
               <div class="paper-body">
@@ -763,6 +765,10 @@
           <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">github.com/Rickchen0910</a>
         </p>
         <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/binzhi-chen-aa03ba18a" target="_blank" rel="noopener noreferrer">linkedin.com/in/binzhi-chen-aa03ba18a</a>
+        </p>
+        <p>
           <strong>Phone:</strong> <a href="tel:+447931174273">+44 (0)7931 174273</a>
         </p>
       </div>
@@ -781,6 +787,7 @@
     document.querySelectorAll('details').forEach(function(el) {
       el.addEventListener('click', function(e) {
         if (!e.target.closest('summary')) return;
+        if (e.target.closest('a')) return;
         e.preventDefault();
         if (el.open) {
           el.dataset.closing = '';
