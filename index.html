@@ -354,9 +354,27 @@
       display: inline-block;
       transition: transform 0.15s ease;
     }
-    details[open] .toggle-icon { transform: rotate(180deg); }
+    details[open]:not([data-closing]) .toggle-icon { transform: rotate(180deg); }
     .paper-item details { width: 100%; }
     .paper-body { margin-top: 4px; }
+
+    /* ─── Accordion animation ─────────────────────────────────────── */
+    details[open] .paper-body,
+    .jmp-callout details[open] p {
+      animation: accordionOpen 0.28s ease forwards;
+    }
+    details[data-closing] .paper-body,
+    .jmp-callout details[data-closing] p {
+      animation: accordionClose 0.22s ease forwards;
+    }
+    @keyframes accordionOpen {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes accordionClose {
+      from { opacity: 1; transform: translateY(0); }
+      to   { opacity: 0; transform: translateY(-8px); }
+    }
 
     /* ─── CV Entries ─────────────────────────────────────────────── */
     .cv-entry {
@@ -759,6 +777,23 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('details').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        if (!e.target.closest('summary')) return;
+        e.preventDefault();
+        if (el.open) {
+          el.dataset.closing = '';
+          setTimeout(function() {
+            delete el.dataset.closing;
+            el.removeAttribute('open');
+          }, 220);
+        } else {
+          el.setAttribute('open', '');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
