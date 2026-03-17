@@ -177,20 +177,15 @@
       align-items: flex-start;
     }
 
-    .photo-placeholder {
+    .profile-photo {
       width: 120px;
       height: 120px;
-      background: var(--color-tag-bg);
-      color: var(--color-accent);
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
       flex-shrink: 0;
       border: 1px solid var(--color-divider);
-      user-select: none;
+      display: block;
     }
 
     .hero-info { flex: 1; }
@@ -409,7 +404,13 @@
     /* ─── Subsection Spacing Variants ────────────────────────────── */
     .subsection-label-mt { margin-top: 40px; }
     .subsection-label-mt-sm { margin-top: 36px; }
-    .cv-download { margin-bottom: 32px; }
+    .cv-download { margin-bottom: 16px; }
+    .cv-embed {
+      width: 100%;
+      height: 800px;
+      border: 1px solid var(--color-divider);
+      margin-bottom: 40px;
+    }
 
     /* ─── References Block ───────────────────────────────────────── */
     .references-list {
@@ -441,10 +442,9 @@
         gap: 20px;
       }
 
-      .photo-placeholder {
+      .profile-photo {
         width: 80px;
         height: 80px;
-        font-size: 1.5rem;
       }
 
       .hero-info h1 { font-size: 1.75rem; }
@@ -494,7 +494,7 @@
   <header>
     <div class="hero">
       <div class="hero-inner">
-        <div class="photo-placeholder" aria-label="Initials of Binzhi Chen" role="img">BC</div>
+        <img class="profile-photo" src="Binzhi_Photo.png" alt="Binzhi Chen" />
         <div class="hero-info">
           <h1>Binzhi Chen</h1>
           <p class="hero-title">Senior Research Fellow</p>
@@ -516,14 +516,10 @@
       <div class="content-block">
         <h2 id="about-heading" class="section-heading">About</h2>
         <p>
-          I am an econometrician specialising in panel data methods, factor models, and machine
-          learning for causal inference. My current research develops estimators and software tools that uncover latent
-          group structures and interactive fixed effects in large panel datasets.
+          I am an econometrician specialising in panel data methods, factor models, and machine learning for causal inference. My current research develops estimators and software tools that uncover latent group structures and interactive fixed effects in large panel datasets.
         </p>
         <p>
-          ​​I am a ​Senior Research Officer in ISER (Institute for Social and Economic Research) at University of Essex. 
-          I completed PhD in Economics at the University of Birmingham (2020–2025), supervised by
-          Marco Barassi and Yiannis Karavias.
+          I am a Senior Research Officer in ISER (Institute for Social and Economic Research) at University of Essex. I completed PhD in Economics at the University of Birmingham (2020–2025), supervised by Marco Barassi and Yiannis Karavias.
         </p>
         <div class="interests" aria-label="Research interests">
           <span class="tag">Panel data models</span>
@@ -616,8 +612,13 @@
         <h2 id="cv-heading" class="section-heading">CV</h2>
 
         <p class="cv-download">
-          <a href="#">Download CV (PDF)</a>
+          <a href="CV_Binzhi_Chen.pdf" target="_blank">View CV (PDF)</a>
         </p>
+        <iframe
+          src="CV_Binzhi_Chen.pdf"
+          class="cv-embed"
+          title="Binzhi Chen — Curriculum Vitae"
+        ></iframe>
 
         <h3 class="subsection-label">Working Experience</h3>
 
