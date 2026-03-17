@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binzhi Chen</title>
+  <meta name="description" content="Binzhi Chen — Econometrician, Senior Research Fellow at ISER, University of Essex. Research in panel data models, grouped fixed effects, and double machine learning.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://rickchen0910.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="profile">
+  <meta property="og:title"       content="Binzhi Chen — Econometrician">
+  <meta property="og:description" content="Senior Research Fellow at ISER, University of Essex. Research in panel data, grouped fixed effects, and double machine learning.">
+  <meta property="og:url"         content="https://rickchen0910.github.io/">
+  <meta property="og:locale"      content="en_GB">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="Binzhi Chen — Econometrician">
+  <meta name="twitter:description" content="Senior Research Fellow at ISER, University of Essex. Research in panel data, grouped fixed effects, and double machine learning.">
+
+  <!-- Structured data: Person schema (Google Knowledge Panel signal) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Binzhi Chen",
+    "jobTitle": "Senior Research Fellow",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Institute for Social and Economic Research, University of Essex"
+    },
+    "email": "Binzhi.Chen@essex.ac.uk",
+    "url": "https://rickchen0910.github.io/",
+    "sameAs": [
+      "https://github.com/Rickchen0910"
+    ],
+    "knowsAbout": [
+      "Panel Data Models",
+      "Grouped Fixed Effects",
+      "Interactive Fixed Effects",
+      "Double Machine Learning",
+      "Econometrics"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ─── Design Tokens ──────────────────────────────────────────── */
+    :root {
+      --color-bg:          #ffffff;
+      --color-text:        #111111;
+      --color-text-muted:  #555555;
+      --color-accent:      #1a3a5c;
+      --color-accent-hover:#14304e;
+      --color-jmp-bg:      #f0f4f8;
+      --color-jmp-border:  #1a3a5c;
+      --color-divider:     #e0e0e0;
+      --color-nav-bg:      #ffffff;
+      --color-nav-border:  #dddddd;
+      --color-tag-bg:      #eef2f7;
+      --color-tag-text:    #1a3a5c;
+
+      --font-serif: Georgia, 'Times New Roman', Times, serif;
+      --font-sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+      --max-width: 760px;
+    }
+
+    /* ─── Reset ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+    a:hover { color: var(--color-accent-hover); }
+
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    p { margin: 0 0 1em; }
+    p:last-child { margin-bottom: 0; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--color-divider);
+      margin: 0;
+    }
+
+    /* ─── Layout Utilities ───────────────────────────────────────── */
+    .content-block {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Navigation ─────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-nav-bg);
+      border-bottom: 1px solid var(--color-nav-border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-text);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-brand:hover { color: var(--color-accent); }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      letter-spacing: 0.015em;
+    }
+    .nav-links a:hover {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+
+    /* ─── Hero / Profile Block ───────────────────────────────────── */
+    .hero {
+      padding: 52px 24px 44px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .photo-placeholder {
+      width: 120px;
+      height: 120px;
+      background: var(--color-tag-bg);
+      color: var(--color-accent);
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--color-divider);
+      user-select: none;
+    }
+
+    .hero-info { flex: 1; }
+
+    .hero-info h1 {
+      font-size: 2.2rem;
+      font-weight: normal;
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    .hero-inst {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin: 4px 0 0;
+    }
+
+    .hero-contact {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-contact .sep {
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Section Wrapper ────────────────────────────────────────── */
+    .section {
+      padding: 44px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    /* ─── Section Headings ───────────────────────────────────────── */
+    .section-heading {
+      font-size: 1.35rem;
+      font-weight: 600;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-divider);
+      margin-bottom: 24px;
+    }
+
+    /* ─── Subsection Label ───────────────────────────────────────── */
+    .subsection-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-top: 0;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    /* ─── Research Interest Tags ─────────────────────────────────── */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+    /* ─── JMP Callout ────────────────────────────────────────────── */
+    .jmp-callout {
+      border-left: 3px solid var(--color-jmp-border);
+      background: var(--color-jmp-bg);
+      padding: 18px 22px;
+      margin-bottom: 0;
+    }
+
+    .jmp-callout h4 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .jmp-callout p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ─── Paper List ─────────────────────────────────────────────── */
+    .paper-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .paper-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .paper-item:last-child { border-bottom: none; }
+
+    .paper-item h4 {
+      font-family: var(--font-sans);
+      font-size: 0.975rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--color-text);
+    }
+
+    .paper-meta {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin: 0 0 6px;
+      font-style: italic;
+    }
+
+    .paper-abstract {
+      font-size: 0.925rem;
+      color: var(--color-text);
+      margin: 6px 0 0;
+      line-height: 1.65;
+    }
+
+    /* ─── CV Entries ─────────────────────────────────────────────── */
+    .cv-entry {
+      display: flex;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .cv-entry:last-of-type { border-bottom: none; }
+
+    .cv-left {
+      flex: 0 0 148px;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cv-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cv-right strong {
+      font-size: 0.975rem;
+      color: var(--color-text);
+    }
+
+    .cv-institution {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    .cv-note {
+      font-size: 0.825rem;
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    footer {
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* ─── Scroll Offset (sticky nav compensation) ───────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    /* ─── Skip Link ──────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 24px;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      z-index: 200;
+    }
+    .skip-link:focus { top: 8px; }
+
+    section[id] {
+      scroll-margin-top: 56px;
+    }
+
+    /* ─── Subsection Spacing Variants ────────────────────────────── */
+    .subsection-label-mt { margin-top: 40px; }
+    .subsection-label-mt-sm { margin-top: 36px; }
+    .cv-download { margin-bottom: 32px; }
+
+    /* ─── References Block ───────────────────────────────────────── */
+    .references-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .references-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .references-list li:last-child { border-bottom: none; }
+    .references-list strong {
+      display: block;
+      font-size: 0.975rem;
+      color: var(--color-text);
+    }
+    .references-list span {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 36px 20px 32px; }
+
+      .hero-inner {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .photo-placeholder {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+      }
+
+      .hero-info h1 { font-size: 1.75rem; }
+
+      .nav-inner { padding: 10px 20px; }
+
+      .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .nav-links a { font-size: 0.82rem; }
+
+      .content-block { padding: 0 20px; }
+
+      .cv-entry {
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cv-left { flex: none; }
+
+      .section { padding: 36px 0; }
+    }
+
+    @media (max-width: 400px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">Binzhi Chen</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header>
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="photo-placeholder" aria-label="Initials of Binzhi Chen" role="img">BC</div>
+        <div class="hero-info">
+          <h1>Binzhi Chen</h1>
+          <p class="hero-title">Senior Research Fellow</p>
+          <p class="hero-inst">Institute for Social and Economic Research (ISER), University of Essex</p>
+          <div class="hero-contact">
+            <a href="mailto:Binzhi.Chen@essex.ac.uk">Binzhi.Chen@essex.ac.uk</a>
+            <span class="sep">·</span>
+            <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- About -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="content-block">
+        <h2 id="about-heading" class="section-heading">About</h2>
+        <p>
+          Binzhi Chen is an econometrician specialising in panel data methods, factor models, and machine
+          learning for causal inference. His research develops estimators and software tools that uncover latent
+          group structures and interactive fixed effects in large panel datasets, with applications to income
+          inequality, environmental economics, and macroeconomic dynamics.
+        </p>
+        <p>
+          He completed his PhD in Economics at the University of Birmingham (2020–2025), supervised by
+          Marco Barassi and Yiannis Karavias. He is now a Senior Research Fellow at ISER, University of Essex,
+          where his work spans Double Debiased Machine Learning, Econometric Theory, and Computational Social Science.
+        </p>
+        <div class="interests" aria-label="Research interests">
+          <span class="tag">Panel data models</span>
+          <span class="tag">Grouped fixed effects</span>
+          <span class="tag">Interactive fixed effects</span>
+          <span class="tag">Double machine learning</span>
+          <span class="tag">Factor models</span>
+          <span class="tag">Latent group structures</span>
+          <span class="tag">Computational econometrics</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="section" aria-labelledby="research-heading">
+      <div class="content-block">
+        <h2 id="research-heading" class="section-heading">Research</h2>
+
+        <h3 class="subsection-label">Job Market Paper</h3>
+        <div class="jmp-callout">
+          <h4>Panel VAR Model With Latent Group Structures</h4>
+          <p>
+            Univariate panel models with interactive fixed effects have been well discussed in previous
+            studies. This paper studies the multivariate panel vector autoregression (PVAR) model with
+            group-based factors. It is flexible: the number of groups, the group membership in each group,
+            and the number of group factors in each equation are not pre-specified, and the model can be
+            extended to group-specific heterogeneous coefficient Panel VAR. Furthermore, it is a parsimonious
+            structural model that is easy to compute. The paper derives the asymptotic distribution and
+            establishes consistency of the estimator for N and T tending to infinity.
+          </p>
+        </div>
+
+        <h3 class="subsection-label subsection-label-mt">Working Papers</h3>
+        <ul class="paper-list">
+
+          <li class="paper-item">
+            <h4>Double Machine Learning for Static Panel Data Models with Interactive Fixed Effects</h4>
+            <p class="paper-meta">with A. Polselli and P. S. Clarke</p>
+          </li>
+
+          <li class="paper-item">
+            <h4>xtife: Interactive Fixed Effects Estimator for Panel Data in R</h4>
+            <p class="paper-meta">2026</p>
+            <p class="paper-abstract">
+              An R package implementing the interactive fixed effects estimator for panel data.
+            </p>
+          </li>
+
+          <li class="paper-item">
+            <h4>pgfe: Grouped Fixed Effects in Panel Data Models in R</h4>
+            <p class="paper-meta">2026</p>
+            <p class="paper-abstract">
+              An R package implementing the grouped fixed effects (GFE) estimator (Bonhomme &amp; Manresa
+              2015) for panel data. Available on
+              <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            </p>
+          </li>
+
+          <li class="paper-item">
+            <h4>Group Patterns in Income Inequality and Economic Growth</h4>
+            <p class="paper-abstract">
+              The relationship between income inequality and economic growth has been debated for a long time.
+              This article uses the grouped fixed effects estimator to examine the growth-inequality nexus
+              across countries. Results indicate a non-linear relationship consistent with the Kuznets
+              curve — inequality has a positive impact on growth at low levels but a negative impact at high
+              levels. The paper also reveals heterogeneity in the response of growth to inequality across
+              groups. Results are robust to two different Gini indexes and different model specifications.
+            </p>
+          </li>
+
+          <li class="paper-item">
+            <h4>Critical Review of Carbon-Emitting Energy as an EKC Regressor: New Evidence from US State-Level Data</h4>
+            <p class="paper-abstract">
+              The introduction of total fossil fuel or energy consumption as a regressor variable has become
+              increasingly common in research on the carbon Kuznets curve (EKC). Given the way CO&#8322;
+              emissions are calculated, this empirical strategy implies a clear endogeneity problem. The paper
+              proposes an alternative model applied to US state-level panel data; empirical results show that
+              bias on the parameters of interest may be important enough to warrant avoiding this common
+              empirical strategy.
+            </p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="section" aria-labelledby="cv-heading">
+      <div class="content-block">
+        <h2 id="cv-heading" class="section-heading">CV</h2>
+
+        <p class="cv-download">
+          <a href="#">Download CV (PDF)</a>
+        </p>
+
+        <h3 class="subsection-label">Working Experience</h3>
+
+        <div class="cv-entry">
+          <div class="cv-left">Sep 2025 – present</div>
+          <div class="cv-right">
+            <strong>Senior Research Fellow</strong>
+            <span class="cv-institution">Institute for Social and Economic Research (ISER), University of Essex, Colchester, UK</span>
+            <span class="cv-note">Research Area: Double Debiased Machine Learning &amp; Econometric Theory &amp; Computational Social Science</span>
+          </div>
+        </div>
+
+        <h3 class="subsection-label subsection-label-mt-sm">Education</h3>
+
+        <div class="cv-entry">
+          <div class="cv-left">Sep 2020 – Jan 2025</div>
+          <div class="cv-right">
+            <strong>Ph.D. in Economics</strong>
+            <span class="cv-institution">University of Birmingham, Birmingham, UK</span>
+            <span class="cv-note">
+              Supervisors: Marco Barassi (University of Birmingham) &amp; Yiannis Karavias (Brunel University London)
+            </span>
+          </div>
+        </div>
+
+        <h3 class="subsection-label subsection-label-mt-sm">References</h3>
+
+        <ul class="references-list">
+          <li>
+            <strong>Marco Barassi</strong>
+            <span>Associate Professor in Econometrics, University of Birmingham</span>
+          </li>
+          <li>
+            <strong>Yiannis Karavias</strong>
+            <span>Professor in Finance, Brunel University London</span>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="content-block">
+        <h2 id="contact-heading" class="section-heading">Contact</h2>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:Binzhi.Chen@essex.ac.uk">Binzhi.Chen@essex.ac.uk</a>
+        </p>
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">github.com/Rickchen0910</a>
+        </p>
+        <p>
+          <strong>Phone:</strong> <a href="tel:+447931174273">+44 (0)7931 174273</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="content-block">
+      <p>Last updated: March 2026</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
