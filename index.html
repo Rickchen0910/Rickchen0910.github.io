@@ -277,13 +277,22 @@
       margin-bottom: 0;
     }
 
-    .jmp-callout h4 {
+    .jmp-callout summary {
       font-family: var(--font-sans);
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 10px;
       color: var(--color-text);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 0;
     }
+    .jmp-callout summary::-webkit-details-marker { display: none; }
+    .jmp-callout details[open] summary { margin-bottom: 10px; }
 
     .jmp-callout p {
       font-size: 0.95rem;
@@ -304,12 +313,22 @@
     }
     .paper-item:last-child { border-bottom: none; }
 
-    .paper-item h4 {
+    .paper-item summary {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+    }
+    .paper-item summary::-webkit-details-marker { display: none; }
+    .paper-item .paper-title {
       font-family: var(--font-sans);
       font-size: 0.975rem;
       font-weight: 600;
-      margin-bottom: 4px;
       color: var(--color-text);
+      flex: 1;
     }
 
     .paper-meta {
@@ -325,6 +344,19 @@
       margin: 6px 0 0;
       line-height: 1.65;
     }
+
+    /* ─── Accordion toggle icon ───────────────────────────────────── */
+    .toggle-icon {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+      margin-top: 4px;
+      display: inline-block;
+      transition: transform 0.15s ease;
+    }
+    details[open] .toggle-icon { transform: rotate(180deg); }
+    .paper-item details { width: 100%; }
+    .paper-body { margin-top: 4px; }
 
     /* ─── CV Entries ─────────────────────────────────────────────── */
     .cv-entry {
@@ -540,66 +572,106 @@
 
         <h3 class="subsection-label">Job Market Paper</h3>
         <div class="jmp-callout">
-          <h4>Panel VAR Model With Latent Group Structures</h4>
-          <p>
-            Univariate panel models with interactive fixed effects have been well discussed in previous
-            studies. This paper studies the multivariate panel vector autoregression (PVAR) model with
-            group-based factors. It is flexible: the number of groups, the group membership in each group,
-            and the number of group factors in each equation are not pre-specified, and the model can be
-            extended to group-specific heterogeneous coefficient Panel VAR. Furthermore, it is a parsimonious
-            structural model that is easy to compute. The paper derives the asymptotic distribution and
-            establishes consistency of the estimator for N and T tending to infinity.
-          </p>
+          <details open>
+            <summary>
+              Panel VAR Model With Latent Group Structures
+              <span class="toggle-icon">▾</span>
+            </summary>
+            <p>
+              Univariate panel models with interactive fixed effects have been well discussed in previous
+              studies. This paper studies the multivariate panel vector autoregression (PVAR) model with
+              group-based factors. It is flexible: the number of groups, the group membership in each group,
+              and the number of group factors in each equation are not pre-specified, and the model can be
+              extended to group-specific heterogeneous coefficient Panel VAR. Furthermore, it is a parsimonious
+              structural model that is easy to compute. The paper derives the asymptotic distribution and
+              establishes consistency of the estimator for N and T tending to infinity.
+            </p>
+          </details>
         </div>
 
         <h3 class="subsection-label subsection-label-mt">Working Papers</h3>
         <ul class="paper-list">
 
           <li class="paper-item">
-            <h4>Double Machine Learning for Static Panel Data Models with Interactive Fixed Effects</h4>
-            <p class="paper-meta">with A. Polselli and P. S. Clarke</p>
+            <details>
+              <summary>
+                <span class="paper-title">Double Machine Learning for Static Panel Data Models with Interactive Fixed Effects</span>
+                <span class="toggle-icon">▾</span>
+              </summary>
+              <div class="paper-body">
+                <p class="paper-meta">with A. Polselli and P. S. Clarke</p>
+              </div>
+            </details>
           </li>
 
           <li class="paper-item">
-            <h4>xtife: Interactive Fixed Effects Estimator for Panel Data in R</h4>
-            <p class="paper-meta">2026</p>
-            <p class="paper-abstract">
-              An R package implementing the interactive fixed effects estimator for panel data.
-            </p>
+            <details>
+              <summary>
+                <span class="paper-title">xtife: Interactive Fixed Effects Estimator for Panel Data in R</span>
+                <span class="toggle-icon">▾</span>
+              </summary>
+              <div class="paper-body">
+                <p class="paper-meta">2026</p>
+                <p class="paper-abstract">
+                  An R package implementing the interactive fixed effects estimator for panel data.
+                </p>
+              </div>
+            </details>
           </li>
 
           <li class="paper-item">
-            <h4>pgfe: Grouped Fixed Effects in Panel Data Models in R</h4>
-            <p class="paper-meta">2026</p>
-            <p class="paper-abstract">
-              An R package implementing the grouped fixed effects (GFE) estimator (Bonhomme &amp; Manresa
-              2015) for panel data. Available on
-              <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">GitHub</a>.
-            </p>
+            <details>
+              <summary>
+                <span class="paper-title">pgfe: Grouped Fixed Effects in Panel Data Models in R</span>
+                <span class="toggle-icon">▾</span>
+              </summary>
+              <div class="paper-body">
+                <p class="paper-meta">2026</p>
+                <p class="paper-abstract">
+                  An R package implementing the grouped fixed effects (GFE) estimator (Bonhomme &amp; Manresa
+                  2015) for panel data. Available on
+                  <a href="https://github.com/Rickchen0910" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                </p>
+              </div>
+            </details>
           </li>
 
           <li class="paper-item">
-            <h4>Group Patterns in Income Inequality and Economic Growth</h4>
-            <p class="paper-abstract">
-              The relationship between income inequality and economic growth has been debated for a long time.
-              This article uses the grouped fixed effects estimator to examine the growth-inequality nexus
-              across countries. Results indicate a non-linear relationship consistent with the Kuznets
-              curve — inequality has a positive impact on growth at low levels but a negative impact at high
-              levels. The paper also reveals heterogeneity in the response of growth to inequality across
-              groups. Results are robust to two different Gini indexes and different model specifications.
-            </p>
+            <details>
+              <summary>
+                <span class="paper-title">Group Patterns in Income Inequality and Economic Growth</span>
+                <span class="toggle-icon">▾</span>
+              </summary>
+              <div class="paper-body">
+                <p class="paper-abstract">
+                  The relationship between income inequality and economic growth has been debated for a long time.
+                  This article uses the grouped fixed effects estimator to examine the growth-inequality nexus
+                  across countries. Results indicate a non-linear relationship consistent with the Kuznets
+                  curve — inequality has a positive impact on growth at low levels but a negative impact at high
+                  levels. The paper also reveals heterogeneity in the response of growth to inequality across
+                  groups. Results are robust to two different Gini indexes and different model specifications.
+                </p>
+              </div>
+            </details>
           </li>
 
           <li class="paper-item">
-            <h4>Critical Review of Carbon-Emitting Energy as an EKC Regressor: New Evidence from US State-Level Data</h4>
-            <p class="paper-abstract">
-              The introduction of total fossil fuel or energy consumption as a regressor variable has become
-              increasingly common in research on the carbon Kuznets curve (EKC). Given the way CO&#8322;
-              emissions are calculated, this empirical strategy implies a clear endogeneity problem. The paper
-              proposes an alternative model applied to US state-level panel data; empirical results show that
-              bias on the parameters of interest may be important enough to warrant avoiding this common
-              empirical strategy.
-            </p>
+            <details>
+              <summary>
+                <span class="paper-title">Critical Review of Carbon-Emitting Energy as an EKC Regressor: New Evidence from US State-Level Data</span>
+                <span class="toggle-icon">▾</span>
+              </summary>
+              <div class="paper-body">
+                <p class="paper-abstract">
+                  The introduction of total fossil fuel or energy consumption as a regressor variable has become
+                  increasingly common in research on the carbon Kuznets curve (EKC). Given the way CO&#8322;
+                  emissions are calculated, this empirical strategy implies a clear endogeneity problem. The paper
+                  proposes an alternative model applied to US state-level panel data; empirical results show that
+                  bias on the parameters of interest may be important enough to warrant avoiding this common
+                  empirical strategy.
+                </p>
+              </div>
+            </details>
           </li>
 
         </ul>
