@@ -626,17 +626,12 @@
         <div class="jmp-callout">
           <details open>
             <summary>
-              Panel VAR Model With Latent Group Structures
+              Double Machine Learning with High-dimensional Interactive Fixed Effects<a href="slides_dml_ife.pdf" class="paper-tag" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">[slides]</a>
               <span class="toggle-icon">▾</span>
             </summary>
+            <p><em>with A. Polselli and P. S. Clarke</em></p>
             <p>
-              Univariate panel models with interactive fixed effects have been well discussed in previous
-              studies. This paper studies the multivariate panel vector autoregression (PVAR) model with
-              group-based factors. It is flexible: the number of groups, the group membership in each group,
-              and the number of group factors in each equation are not pre-specified, and the model can be
-              extended to group-specific heterogeneous coefficient Panel VAR. Furthermore, it is a parsimonious
-              structural model that is easy to compute. The paper derives the asymptotic distribution and
-              establishes consistency of the estimator for N and T tending to infinity.
+              Factor structures are central to empirical work in economics and finance, and are usually used to model time-varying unobserved heterogeneity through interactive fixed effects (IFE). Existing IFE estimators rest on low-dimensional and linear specifications in the covariates, assumptions which are increasingly restrictive in applications drawing on rich datasets with controls of unknown functional form. This paper develops a Double Machine Learning estimator for the high-dimensional partially linear panel model with interactive fixed effects (panel DML-IFE). The method combines projection-based defactorisation of the data, in the spirit of Common Correlated Effects (CCE), with a Neyman-orthogonal score function and cross-fitting procedure, and accommodates low-rank factor structures in outcomes and treatments alongside high-dimensional, potentially nonlinear covariate effects estimated by machine learning algorithms. Monte Carlo simulations show that panel DML-IFE outperforms conventional IFE estimator outside the correctly-specified linear case, with bias reduction driven primarily by the time and covariate dimensions. An empirical application to U.S. stock returns shows that several effects documented under linear specifications lose statistical significance once high-dimensional nonlinear confounding and the presence of IFE are jointly accounted for.
             </p>
           </details>
         </div>
@@ -647,13 +642,18 @@
           <li class="paper-item">
             <details>
               <summary>
-                <span class="paper-title">Double Machine Learning with High-dimensional Interactive Fixed Effects<a href="slides_dml_ife.pdf" class="paper-tag" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">[slides]</a></span>
+                <span class="paper-title">Panel VAR Model With Latent Group Structures</span>
                 <span class="toggle-icon">▾</span>
               </summary>
               <div class="paper-body">
-                <p class="paper-meta">with A. Polselli and P. S. Clarke</p>
                 <p class="paper-abstract">
-                  Factor structures are central to empirical work in economics and finance, and are usually used to model time-varying unobserved heterogeneity through interactive fixed effects (IFE). Existing IFE estimators rest on low-dimensional and linear specifications in the covariates, assumptions which are increasingly restrictive in applications drawing on rich datasets with controls of unknown functional form. This paper develops a Double Machine Learning estimator for the high-dimensional partially linear panel model with interactive fixed effects (panel DML-IFE). The method combines projection-based defactorisation of the data, in the spirit of Common Correlated Effects (CCE), with a Neyman-orthogonal score function and cross-fitting procedure, and accommodates low-rank factor structures in outcomes and treatments alongside high-dimensional, potentially nonlinear covariate effects estimated by machine learning algorithms. Monte Carlo simulations show that panel DML-IFE outperforms conventional IFE estimator outside the correctly-specified linear case, with bias reduction driven primarily by the time and covariate dimensions. An empirical application to U.S. stock returns shows that several effects documented under linear specifications lose statistical significance once high-dimensional nonlinear confounding and the presence of IFE are jointly accounted for.
+                  Univariate panel models with interactive fixed effects have been well discussed in previous
+                  studies. This paper studies the multivariate panel vector autoregression (PVAR) model with
+                  group-based factors. It is flexible: the number of groups, the group membership in each group,
+                  and the number of group factors in each equation are not pre-specified, and the model can be
+                  extended to group-specific heterogeneous coefficient Panel VAR. Furthermore, it is a parsimonious
+                  structural model that is easy to compute. The paper derives the asymptotic distribution and
+                  establishes consistency of the estimator for N and T tending to infinity.
                 </p>
               </div>
             </details>
